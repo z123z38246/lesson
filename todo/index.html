@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>待办清单 · Todo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>我的待办清单</h1>
+      <p class="subtitle" id="dateText"></p>
+    </header>
+
+    <form class="input-bar" id="todoForm" autocomplete="off">
+      <input
+        type="text"
+        id="todoInput"
+        class="todo-input"
+        placeholder="添加一个新任务，回车确认…"
+        maxlength="120"
+      />
+      <select id="prioritySelect" class="priority-select" aria-label="优先级">
+        <option value="low">低</option>
+        <option value="medium" selected>中</option>
+        <option value="high">高</option>
+      </select>
+      <button type="submit" class="add-btn" aria-label="添加">添加</button>
+    </form>
+
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="active">未完成</button>
+        <button class="filter-btn" data-filter="completed">已完成</button>
+      </div>
+      <button class="clear-btn" id="clearCompleted">清除已完成</button>
+    </div>
+
+    <ul class="todo-list" id="todoList"></ul>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">✓</div>
+      <p>暂无任务，添加一个开始吧！</p>
+    </div>
+
+    <footer class="app-footer">
+      <span id="itemsLeft">0 个未完成</span>
+      <span class="progress-text" id="progressText"></span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
